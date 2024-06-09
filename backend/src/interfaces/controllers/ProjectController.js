@@ -19,7 +19,7 @@ class ProjectController {
       const newProject = await createProject.execute(project);
       res.status(201).send(newProject);
     } catch (err) {
-      res.send(err.message);
+      res.status(400).send(err.message);
     }
   }
 
@@ -30,7 +30,7 @@ class ProjectController {
     listProjects
       .execute(userId)
       .then((projects) => res.json(projects))
-      .catch((err) => res.send(err.message));
+      .catch((err) => res.status(400).send(err.message));
   }
 
   async updateProject(req, res) {
@@ -40,9 +40,9 @@ class ProjectController {
       const updateProject = new UpdateProject(this.projectRepository);
 
       const updatedProject = await updateProject.execute(id, projectData);
-      res.json(updatedProject);
+      res.status(200).send(updatedProject);
     } catch (err) {
-      res.send(err.message);
+      res.status(400).send(err.message);
     }
   }
 
@@ -53,7 +53,7 @@ class ProjectController {
     deleteProject
       .execute(id)
       .then(() => res.json({ msg: "Projeto removido" }))
-      .catch((err) => res.send(err.message));
+      .catch((err) => res.status(400).send(err.message));
   }
 }
 
