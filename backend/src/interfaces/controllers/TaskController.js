@@ -9,13 +9,15 @@ class TaskController {
     this.taskRepository = taskRepository;
   }
 
-  listTasks(req, res) {
-    const { projectId } = req.body;
-    const listTasks = new ListTasks(this.taskRepository);
-    listTasks
-      .execute(projectId)
-      .then((tasks) => res.status(200).send(tasks))
-      .catch((err) => res.status(400).send(err.message));
+  async listTasks(req, res) {
+    try {
+      const { projectId } = req.body;
+      const listTasks = new ListTasks(this.taskRepository);
+      const tasks = await listTasks.execute(projectId);
+      res.status(200).send(tasks);
+    } catch (err) {
+      res.status(400).send(err.message);
+    }
   }
 
   async createTask(req, res) {
@@ -63,13 +65,12 @@ class TaskController {
     }
   }
 
-  deleteTask(req, res) {
+  async deleteTask(req, res) {
     try {
       const { id } = req.params;
       const deleteTask = new DeleteTask(this.taskRepository);
-      deleteTask
-        .execute(id)
-        .then(() => res.status(200).send({ message: "Tarefa deletada!" }));
+      await deleteTask.execute(id);
+      res.status(200).send({ message: "Tarefa deletada!" });
     } catch (err) {
       res.status(400).send(err.message);
     }
