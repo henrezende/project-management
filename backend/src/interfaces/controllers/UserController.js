@@ -13,7 +13,7 @@ class UserController {
     try {
       const { name, email, password } = req.body;
       const registerUser = new RegisterUser(this.userRepository);
-      const user = new User(null, name, email, password);
+      const user = new User(name, email, password);
       const newUser = await registerUser.execute(user);
       res.status(201).send(newUser);
     } catch (err) {
