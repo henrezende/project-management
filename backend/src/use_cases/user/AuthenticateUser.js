@@ -7,20 +7,16 @@ class AuthenticateUser {
   }
 
   async execute(email, password) {
-    // Check if user exists
-
     const user = await this.userRepository.findByEmail(email);
     if (!user) {
-      throw new Error("Invalid credentials111");
+      throw new Error("Credenciais inválidas");
     }
 
-    // Check password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      throw new Error("Invalid credentials22");
+      throw new Error("Credenciais inválidas");
     }
 
-    // Create and sign JWT
     const payload = {
       user: {
         id: user.id,
