@@ -50,7 +50,7 @@ Crie um arquivo .env no diretório **backend** e adicione as seguintes variávei
 
 ```
 
-PORT=3000
+PORT=5000
 
 JWT_SECRET=582e8c1910896fc227e2d96d62b9a9560275c2493b1f9ecc64d4b2e9d6156578
 
@@ -107,7 +107,7 @@ Isto irá iniciar a aplicação em containers Docker.
 
 - Eliminar tarefa: DELETE /tasks/:id (Requer JWT)
 
-Testes
+## Testes
 
 O projeto usa Jest e Supertest para testes. Para executar os testes:
 
