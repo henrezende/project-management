@@ -89,6 +89,8 @@ Isto irá iniciar a aplicação em containers Docker.
 
 - Listar projetos: GET /projects (Requer JWT)
 
+- Listar projeto por id: GET /projects/:id (Requer JWT)
+
 - Atualizar projeto: PUT /projects/:id (Requer JWT)
   Request Body: { "name": "Nome do Projeto Atualizado", "descrição": "Descrição actualizada do projeto" }
 
@@ -96,7 +98,7 @@ Isto irá iniciar a aplicação em containers Docker.
 
 #### Rotas de tarefas
 
-- Listar tarefas: GET /tasks (Requer JWT)
+- Listar tarefas: GET /tasks?projectId=:id (Requer JWT)
   Request Body: {"projectId": "projectIdExample" }
 
 - Criar tarefa: POST /tasks (Requer JWT)
