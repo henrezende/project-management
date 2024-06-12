@@ -1,6 +1,7 @@
 const Project = require("../../entities/Project");
 const CreateProject = require("../../use_cases/project/CreateProject");
 const ListProjects = require("../../use_cases/project/ListProjects");
+const ShowProject = require("../../use_cases/project/ShowProject");
 const UpdateProject = require("../../use_cases/project/UpdateProject");
 const DeleteProject = require("../../use_cases/project/DeleteProject");
 
@@ -30,6 +31,18 @@ class ProjectController {
 
       const projects = await listProjects.execute(userId);
       res.status(200).send(projects);
+    } catch (err) {
+      res.status(400).send(err.message);
+    }
+  }
+
+  async showProject(req, res) {
+    try {
+      const { id } = req.params;
+      const showProject = new ShowProject(this.projectRepository);
+
+      const project = await showProject.execute(id);
+      res.status(200).send(project);
     } catch (err) {
       res.status(400).send(err.message);
     }

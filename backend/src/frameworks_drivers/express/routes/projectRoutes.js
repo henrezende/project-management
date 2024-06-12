@@ -11,6 +11,9 @@ const router = express.Router();
 router.get("/", authMiddleware, (req, res) =>
   projectController.listProjects(req, res)
 );
+router.get("/:id", authMiddleware, (req, res) =>
+  projectController.showProject(req, res)
+);
 router.post("/", authMiddleware, (req, res) =>
   projectController.createProject(req, res)
 );

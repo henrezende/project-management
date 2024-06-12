@@ -11,6 +11,10 @@ class MongoProjectRepository {
     return await ProjectModel.find({ userId });
   }
 
+  async findById(id) {
+    return await ProjectModel.findById(id);
+  }
+
   async update(id, updatedProject) {
     return await ProjectModel.findByIdAndUpdate(id, updatedProject, {
       new: true,
