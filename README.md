@@ -1,6 +1,6 @@
-# Sistema de Gestão de Projectos
+# Sistema de Gestão de Projetos
 
-Este projeto é um sistema de gestão de projetos construído com Node.js e Express para o backend, usando MongoDB como base de dados. A aplicação segue um design de arquitetura limpa, garantindo uma base de código modular e de fácil manutenção. O sistema suporta autenticação de usuários, gestão de projetos e gestão de tarefas.
+Este projeto é um sistema de gestão de projetos construído com Node.js e Express para o backend, usando MongoDB como base de dados, e React com Next.js para o frontend. A aplicação segue um design de arquitetura limpa, garantindo uma base de código modular e de fácil manutenção. O sistema suporta autenticação de usuários, gestão de projetos e gestão de tarefas.
 
 ## Features
 
@@ -12,11 +12,13 @@ Este projeto é um sistema de gestão de projetos construído com Node.js e Expr
 
 ## Tecnologias utilizadas
 
-#### Backend:
-
 - Node.js
 
 - Express
+
+- React
+
+- Next.js
 
 - MongoDB
 
