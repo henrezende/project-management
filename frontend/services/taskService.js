@@ -1,40 +1,40 @@
-import api from "@/utils/api";
+import api from "../utils/api";
 
-const ProjectService = {
-  getProjects: async () => {
-    const response = await api.get(`/projects`, {
+const TaskService = {
+  getTasks: async (projectId) => {
+    const response = await api.get("/tasks?", {
+      params: { projectId },
       headers: { Authorization: `Bearer ${document.cookie.split("=")[1]}` },
     });
     return response.data;
   },
 
-  getProjectById: async (id) => {
-    const response = await api.get(`/projects/${id}`, {
+  getTaskById: async (id) => {
+    const response = await api.get(`/tasks/${id}`, {
       headers: { Authorization: `Bearer ${document.cookie.split("=")[1]}` },
     });
     return response.data;
   },
 
-  createProject: async (projectData) => {
-    const response = await api.post("/projects", projectData, {
+  createTask: async (taskData) => {
+    const response = await api.post("/tasks", taskData, {
       headers: { Authorization: `Bearer ${document.cookie.split("=")[1]}` },
     });
     return response.data;
   },
 
-  updateProject: async (id, projectData) => {
-    const response = await api.put(`/projects/${id}`, projectData, {
+  updateTask: async (id, taskData) => {
+    const response = await api.put(`/tasks/${id}`, taskData, {
       headers: { Authorization: `Bearer ${document.cookie.split("=")[1]}` },
     });
     return response.data;
   },
 
-  deleteProject: async (id) => {
-    const response = await api.delete(`/projects/${id}`, {
+  deleteTask: async (id) => {
+    const response = await api.delete(`/tasks/${id}`, {
       headers: { Authorization: `Bearer ${document.cookie.split("=")[1]}` },
     });
     return response.data;
   },
 };
-
-export default ProjectService;
+export default TaskService;
