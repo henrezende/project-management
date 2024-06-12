@@ -7,6 +7,7 @@ services:
       - "3000:3000"
     environment:
       - NEXT_PUBLIC_API_URL=http://localhost:5000
+      - NEXT_PUBLIC_JWT_SECRET=582e8c1910896fc227e2d96d62b9a9560275c2493b1f9ecc64d4b2e9d6156578
     depends_on:
       - backend
     volumes:
