@@ -12,7 +12,7 @@ const TaskList = ({ projectId }) => {
   }, [projectId]);
 
   return (
-    <div className="max-w-lg mx-auto mt-4">
+    <div className="mx-auto mt-8">
       {tasks.map((task) => (
         <div key={task._id}>
           <TaskItem projectId={projectId} task={task} />

@@ -3,7 +3,7 @@ import ProjectList from "@/components/projects/ProjectList";
 
 const Projects = () => {
   return (
-    <div>
+    <div className="p-8 bg-white drop-shadow-md	w-100 container mx-auto">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">Projetos</h1>
         <Link

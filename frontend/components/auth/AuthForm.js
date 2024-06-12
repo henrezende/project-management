@@ -19,11 +19,11 @@ export default function AuthForm({ mode }) {
       if (mode === "login") {
         const data = await login(email, password);
         setAuthToken(data);
+        router.push("/projects");
       } else {
-        const data = await register(name, email, password);
-        setAuthToken(data);
+        await register(name, email, password);
+        router.push("/auth/login");
       }
-      router.push("/projects");
     } catch (error) {
       console.error(error);
     }

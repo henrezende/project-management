@@ -11,7 +11,7 @@ const ProjectItem = ({ project }) => {
     <li key={project._id} className="mb-2">
       <button
         onClick={() => handleProjectClick(project._id)}
-        className="text-blue-500"
+        className="text-slate-600 font-bold"
       >
         {project.name}
       </button>

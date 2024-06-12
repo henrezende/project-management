@@ -13,10 +13,12 @@ const ProjectList = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Projetos</h1>
       <ul>
         {projects.map((project) => (
-          <div key={project._id}>
+          <div
+            className=" bg-gray-100 hover:bg-gray-200 drop-shadow-md my-4 max-w-fit p-4 rounded-md "
+            key={project._id}
+          >
             <ProjectItem project={project} />
           </div>
         ))}

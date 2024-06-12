@@ -3,6 +3,11 @@ import moment from "moment";
 import TaskService from "@/services/taskService";
 import { STATUS } from "@/utils/constants";
 
+const taskStatus = {
+  pending: "Pendente",
+  completed: "Finalizado",
+};
+
 const TaskItem = ({ projectId, task }) => {
   const router = useRouter();
 
@@ -20,11 +25,11 @@ const TaskItem = ({ projectId, task }) => {
   };
 
   return (
-    <div className="flex items-center justify-between mb-2 p-2 border rounded">
+    <div className=" mb-2 p-2 border rounded">
       <div>
         <h3 className="text-lg font-bold">{task.title}</h3>
         <p>{task.description}</p>
-        <p>Status: {task.status}</p>
+        <p>Status: {taskStatus[task.status]}</p>
         {task.status === STATUS.Completed ? (
           <p>
             Completado em: {moment(task.completedAt).format("DD/MM/YYYY HH:mm")}
@@ -33,7 +38,7 @@ const TaskItem = ({ projectId, task }) => {
       </div>
       <button
         onClick={() => handleEdit(task._id)}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline mr-2"
       >
         Editar
       </button>
