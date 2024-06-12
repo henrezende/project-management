@@ -1,10 +1,12 @@
-import ProjectForm from "../../components/projects/ProjectForm";
+import ProjectForm from "@/components/projects/ProjectForm";
 
-export default function CreateProject() {
+const CreateProjectPage = () => {
   return (
-    <div>
-      <h1 className="text-2xl font-bold text-center mt-10">Create Project</h1>
+    <div className="container mx-auto">
+      <h1 className="text-2xl font-bold mb-4">Criar Projeto</h1>
       <ProjectForm />
     </div>
   );
-}
+};
+
+export default CreateProjectPage;
