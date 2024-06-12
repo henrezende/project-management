@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-docker-containers:
+    name: Test Docker Containers
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker containers
+        id: build-containers
+        run: |
+          docker compose up --build -d --wait
+
+      - name: Run tests
+        run: |
+          docker compose exec backend npm test
+
+      - name: Run frontend lint
+        run: |
+          docker compose exec frontend npm run lint
+          docker compose down
