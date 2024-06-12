@@ -10,6 +10,9 @@ const taskController = new TaskController(taskRepository);
 router.get("/", authMiddleware, (req, res) =>
   taskController.listTasks(req, res)
 );
+router.get("/:id", authMiddleware, (req, res) =>
+  taskController.showTask(req, res)
+);
 router.post("/", authMiddleware, (req, res) =>
   taskController.createTask(req, res)
 );

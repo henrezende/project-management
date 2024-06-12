@@ -7,7 +7,7 @@ class MongoTaskRepository {
   }
 
   async findById(id) {
-    return await TaskModel.findOne({ id });
+    return await TaskModel.findById(id);
   }
 
   async findByProjectId(projectId) {
