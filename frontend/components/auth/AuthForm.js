@@ -5,7 +5,7 @@ import { setAuthToken } from "@/utils/auth";
 
 export default function AuthForm({ mode }) {
   const [email, setEmail] = useState("");
-  const [nome, setNome] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
 
@@ -17,13 +17,11 @@ export default function AuthForm({ mode }) {
     e.preventDefault();
     try {
       if (mode === "login") {
-        debugger;
         const data = await login(email, password);
-        setAuthToken(data.token);
+        setAuthToken(data);
       } else {
-        debugger;
         const data = await register(name, email, password);
-        setAuthToken(data.token);
+        setAuthToken(data);
       }
       router.push("/projects");
     } catch (error) {
@@ -31,31 +29,6 @@ export default function AuthForm({ mode }) {
     }
   };
 
-  /*
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const data = await login(email, password);
-      setAuthToken(data.token);
-      router.push('/projects');
-    } catch (error) {
-      console.error(error);
-      alert('Login failed');
-    }
-  };
-
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    try {
-      const data = await register(name, email, password);
-      setAuthToken(data.token);
-      router.push('/projects');
-    } catch (error) {
-      console.error(error);
-      alert('Registration failed');
-    }
-  };
-  */
   return (
     <form
       onSubmit={handleSubmit}
@@ -67,17 +40,17 @@ export default function AuthForm({ mode }) {
       {mode === "register" ? (
         <div className="mb-4">
           <label
-            htmlFor="nome"
+            htmlFor="name"
             className="block text-sm font-medium text-gray-700"
           >
             Nome
           </label>
           <input
             type="text"
-            id="nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300 text-black"
             required
           />
         </div>
@@ -94,7 +67,7 @@ export default function AuthForm({ mode }) {
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300 text-black"
           required
         />
       </div>
