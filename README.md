@@ -48,19 +48,7 @@ git clone https://github.com/henrezende/project-management.git
 
 ### Variáveis de ambiente
 
-Crie um arquivo .env no diretório **backend** e adicione as seguintes variáveis de ambiente:
-
-```
-
-PORT=5000
-
-JWT_SECRET=582e8c1910896fc227e2d96d62b9a9560275c2493b1f9ecc64d4b2e9d6156578
-
-MONGODB_URI=mongodb://root:example@mongo:27017/managementdb?authSource=admin
-
-```
-
-PS: Esses valores só estão sendo comitados pois trata-se de um sistema teste, o básico da segurança é jamais comitar chaves como essas em sistemas de produção.
+Esses valores só estão sendo comitados pois trata-se de um sistema teste, o básico da segurança é jamais comitar chaves como essas em sistemas de produção.
 
 ### Executar com o Docker
 
